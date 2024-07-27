@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% block content%}
+<main id="main">
+    <section id="payment" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="container mt-5">
+            <h2 style="color: #e8aa34;">Payment Details</h2>
+            <form method="post" action="{%url 'home'%}">
+                {% csrf_token %}
+                {{ form.payment_method }}
+                {{ form.mpesa_code }}
+                <br>
+                <br> <br>
+                <button type="submit" style="color: #e8aa34; background: #938239" >Pay</button>
+            </form>
+            <br>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentMethodRadios = document.querySelectorAll('input[name="payment_method"]');
+            const mpesaCodeInput = document.getElementById('id_mpesa_code');
+    
+            paymentMethodRadios.forEach(function(radio) {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'MPESA') {
+                         mpesaCodeInput.parentElement.style.display = 'block';
+                    } else {
+                        mpesaCodeInput.parentElement.style.display = 'none';
+                    }
+                });
+            });
+        });
+        </script>
+        
+
+</main>
+{% endblock content%} 

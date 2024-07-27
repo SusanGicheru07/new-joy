@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+
+{% block content %}
+<main id="main">
+  <h2>Guest List</h2>
+  <table>
+    <thead>
+      <tr>
+
+        <th>Kenyan ID</th>
+        <th>Name</th>
+        <th>Check-In Time</th>
+        <th>Payment Method</th>
+        <th>Payment Amount</th>
+        
+        
+        <th>Check-Out Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for guest in guests %}
+      <tr>
+        <td>{{ guest.id }}</td>
+        <td>{{ guest.name }}</td>
+        <td>{{ guest.check_in_time|date:"D, d M Y H:i" }}</td>
+        <td>{{ guest.payment_method }}</td>
+        <br>
+        <td>{{ guest.payment_amount }}</td>
+        <br>
+        <td>{% if guest.check_out_time %}{{ guest.check_out_time|date:"D, d M Y H:i" }}{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'add_guest' %}">Add New Guest</a>
+</main>
+{% endblock %}

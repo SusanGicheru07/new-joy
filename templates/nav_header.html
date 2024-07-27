@@ -1,0 +1,33 @@
+ {% load static %}
+ <!-- ======= Header ======= -->
+ <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <a href="index.html"><img src="{% static 'img/logo.png'%}" alt="" class="img-fluid"></a>
+        <!-- Uncomment below if you prefer to use a header line -->
+        <!--<h1><a href="index.html">New Joy Guest House</a></h1> -->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'home'%}">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#service">Services & Amenities</a></li>
+          <li><a class="nav-link scrollto" href="{%url 'contact' %}">Contact</a></li>
+          <li class="dropdown"><a href="{% url 'home' %}">Rooms<span></span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'book_roomA' %}"> Book Class A</a></li>
+              <li><a href="{% url 'book_roomB' %}">Book Class B</a></li>
+              </li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="{%url 'guest_list' %}">Ruth</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      
+
+    </div>
+  </header><!-- End Header -->

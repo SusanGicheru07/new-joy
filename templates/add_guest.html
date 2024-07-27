@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block content %}
+<main id="main">
+  <h2>Add New Guest</h2>
+  <form method="post" action="{% url 'guest_list'%}">
+    {% csrf_token %}
+    <br> <br>
+    {{ form.id.label_tag }} {{ form.id }}
+    <br>
+    {{ form.name.label_tag }} {{ form.name }}
+    <br>
+    {{ form.payment_amount.label_tag }} {{ form.payment_amount }}
+    <br>
+    {{ form.payment_method.label_tag }} {{ form.payment_method }}
+    <br>
+    <button type="submit">Add Guest</button>
+  </form>
+</main>
+{% endblock %}
